@@ -6,25 +6,58 @@ export default function MyComponent(){
   const course_attributes = [
     "Course Name",
     "Day",
-    "Start",
-    "End",
+    "Start Time",
+    "End Time"
   ]
+
+  const [courseData, setCourseData] = 
+  useState ({"Course Name": "",
+    "Day": "",
+    "Start Time": "",
+    "End Time": ""
+  })
+  // Enables the Course Name, Day, Start Time, End Time, to be Saved //
+
+  const [course, setCourses] = useState([]);
+  // Enables All the Actual Classes to be Saved // 
+
+  const handleInputChange = (attribute, value) => {
+    setCourseData(prev => ({...prev, [attribute]: value}));
+  };
+  // Saves Every Single Key Input //
+
+  const handleCourse = (course_attribute, value) => {
+    setCourseData (prev => ({ ...prev, [course_attribute]: value}));
+  };
+  // => Anonymous Function // 
+  const handleAddCourse = () => {
+    if (courseData["Course Name"]){
+      setCourses(prev =>[...prev , courseData]);
+      setCourseData({"Course Name": "", "Day": "", "Start Time": "", "End Time": ""})
+    }
+  };
+
 
 return (
   /* RETURNING JSX  */
+  /* WE ARE RETURNING WHAT THE USER WILL ACTUALLY SEE */
   <>
   <div id="main-page-div">
     <h1>College Schedule Builder</h1>
     <h2>Add a Course</h2>
       <div className="input-row"> 
-        {course_attributes.map((course_attribute) => (
+        {course_attributes.map((attr) => (
+          // MAP IS A LOOP, IT WILL LOOK THROUGH THE LIST AND CREATE A INPUT BOX FOR EACH ATTRIBUTE //
           <input 
-          key={course_attribute}
+          key={attr}
           type="text"
-          placeholder={course_attribute}
+          placeholder={attr}
           />
         ))}
         <button type="submit">+Add</button>
+      </div>
+      <div id="add-course">
+      </div>
 
         {/* <h3>Course Name</h3> */}
         {/* <input type="text" 
@@ -35,10 +68,6 @@ return (
         <input type="text" name="date" placeholder="Enter course name"></input>
         <button>Add Course</button> */}
         {/* Implementing a Shortcut*/}
-
-
-
-      </div>
   </div>
   </>
   );

@@ -30,11 +30,15 @@ h3{
   font-weight: 800;
 }
 
-#main-page-div{ width: 100%; height: 100%;
+#main-page-div{ width: 100%; height: 100vh;
   background-color: white; 
 }
 
 #add-course{ 
-  width: 100%; height: 100%;
-  background-color: white; 
+  width: 620px; height: 70vh;
+  margin-top: 20px;
+
+  margin-left: 10px;
+  padding-right:10px;
+  background-color: #D6B588; 
 }
