@@ -1,3 +1,5 @@
+// AI ASSISTED CODE
+
 import { useState } from 'react';
 import './App.css';
 
@@ -52,11 +54,19 @@ return (
           key={attr}
           type="text"
           placeholder={attr}
+          value={courseData[attr]}
+          onChange={(e) => handleInputChange(attr, e.target.value)}
           />
         ))}
-        <button type="submit">+Add</button>
+        <button onClick={handleAddCourse}>+Add</button>
       </div>
+      {/* THE FOLLOWING DIV WILL DISPLAY THE ACTUAL CLASSES IN A SEPARATE CONTAINER  */}
       <div id="add-course">
+        {course.map((item,index) => (
+          <div key={index} className="course-item">
+            <p>{item["Course Name"]} - {item["Day"]} @ {item["Start Time"]} - {item["End Time"]}</p>
+          </div>
+        ))}
       </div>
 
         {/* <h3>Course Name</h3> */}
