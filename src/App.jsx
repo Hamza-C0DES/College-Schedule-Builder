@@ -11,6 +11,9 @@ export default function MyComponent(){
     "Start Time",
     "End Time"
   ]
+  // This is an Array in JSX. //
+  // It contains all the inputs required for the course. //
+
 
   const [courseData, setCourseData] = 
   useState ({"Course Name": "",
@@ -18,6 +21,9 @@ export default function MyComponent(){
     "Start Time": "",
     "End Time": ""
   })
+  // Object State //
+  // Stores the Current text being typed //
+  // Each key matches an item in the course_attributes //
   // Enables the Course Name, Day, Start Time, End Time, to be Saved //
 
   const [course, setCourses] = useState([]);
